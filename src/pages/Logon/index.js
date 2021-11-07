@@ -1,32 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import {React, useState} from 'react';
+import api from '../../api'
+import {Link, useHistory} from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
-
 import './styles.css'; 
 
-import logoText from "../../assets/logoText.png";
-import logoImg from "../../assets/logoImg.png";
-
 export default function Logon(){
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    async function handleLogin(e){
+        e.preventDefault();
+        const data = {
+            email: email,
+            password: password
+        }
+        try{
+            const response = await api.post('/login', data)
+            localStorage.setItem('userId', response.data.id)
+            history.push('/selecionar')
+        }catch(err){
+            alert("Oops, algo deu errado")
+        }
+
+    }
+
     return (
         <div className="back">
             <h1>
                 <div className="logonContainer">
-                    <section className="form">
-                        <img className="imgTxt" src={logoText} alt="logoText" />
-                        <form>
-                            <h1>Faça seu login</h1>
-                            <input placeholder="Nome de usuário"></input>
-                            <input type = "password" placeholder="Senha"></input>
-                            <button className="button">Entrar</button>
-                            <Link className="back-link" to = "/register">
-                                <FiLogIn size={16} color="#000000"  />
-                                Registre-se
-                            </Link>
-                        </form>
-                    </section>
-                <img src={logoImg} alt="logoImg" style= {{ marginRight : 100 }}/>
+                    <form onSubmit={handleLogin}>
+                        <h1>Faça seu login</h1>
+
+                        <label>Email</label>
+                        <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}></input>
+ 
+                        <label>Senha</label>
+                        <input type = "password" placeholder="Senha" value={password} onChange={e => setPassword(e.target.value)}></input> 
+                    
+                        <button className="button" type="submit">Entrar</button>
+                        
+                        <Link className="back-link" to = "/register" >
+                            <FiLogIn size={16} color="#111111"  />
+                            Registre-se
+                        </Link>
+                    </form>
                 </div>
             </h1>
         </div>
