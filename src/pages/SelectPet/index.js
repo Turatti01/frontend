@@ -1,30 +1,35 @@
-import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
+import {React, useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+//import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../api'
+//import { FiPower, FiTrash2 } from 'react-icons/fi'
+//import { FiLogIn } from 'react-icons/fi';
 import image1 from '../../Assets/logomarca.svg';
+import image2 from '../../Assets/doguinho1.jpg';
 import "./styles.css";
-export default function Register(){
-    const history = useHistory();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+export default function SelectPet(){
+  const [pets, setPets] = useState([]);
 
-    async function handleRegister(e){
-        e.preventDefault();
-        try{
-            await api.post('/users.create', {name, email, password});
-            alert("Usuário cadastrado")
-            history.push('/SelectPet');
-        }catch(err){
-            alert("Oops, algo deu errado")
+    useEffect(()=>{
+     const userId = localStorage.getItem('userId')
+        async function fetchData() {
+        const resp = await api.get(`/pets.list/${userId}`);
+            setPets(resp.data);
+            console.log(resp.data)
         }
-    }
+        fetchData();
+    }, []);
 
-    return ( 
-        <div>
-        <section id="menu">
+
+    // function logout() {
+    //   localStorage.clear()
+    //   history.push('/')
+    // }
+return(
+    <div>
+
+   <section id="menu">
     <div class="center">
       <header id="main-header">
         { <img src={image1} alt="Logomarca Helpet"></img> }
@@ -47,31 +52,29 @@ export default function Register(){
       </header>
     </div>
     </section>
-      <main class="register-login container flex flex--centro flex--coluna">
-        <section class="cartao cadastro">
-            <h1 class="cartao__titulo">Cadastro</h1>
-            <form class="flex flex--coluna" onSubmit={handleRegister}>
-                <div class="input-container">
-                    <input name="nome" class="input" type="text" placeholder="Nome" value={name} onChange={e => setName(e.target.value)} ></input>
-                    <label class="input-label" for="nome">Nome</label>
-                </div>
-                <div class="input-container">
-                    <input name="email" class="input" type="Email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} ></input>
-                    <label class="input-label" for="email" >E-mail</label>
-                </div>
-                <div class="input-container">
-                    <input name="senha" class="input" type="password" placeholder="Senha"value={password} onChange={e => setPassword(e.target.value)}></input>
-                    <label class="input-label" for="senha" >Senha</label>
-                </div>
-                <button type="submit"class="botao">
-                Cadastrar
-            </button>
-            </form>
-            <Link class="botao-secundario" to="/" >
-              Já possuo cadastro 
-             </Link>
-        </section>
-    </main>
+    <main class="register-login container flex flex--centro flex--coluna">
+    <Link className="botaopet" to="/CadAnimal">Cadastrar novo animal</Link>
+    
+    {/* PETS DO USUÁRIO */}
+    <div className='pet-cards--wrapper'> 
+      {pets.map( pet=> 
+      // CADA UM DENTRO DO MAP É UM PET
+        <div key={pet.id} className='pet-card'> 
+          <img src={image2}  position= "flex" height= "200px" width= "100px"></img>
+          <div className='pet-card-details'>
+            <h4><strong>{pet.nome}</strong></h4>
+            <ul>
+              <li>Idade: {pet.idade}</li>
+              <li>Cor: {pet.cor}</li>
+              <li>Tipo: {pet.tipo}</li>
+            </ul>
+          </div>
+        </div>
+      )} 
+    </div>
+
+
+    </main> 
     <footer id="footer">
         <div class="center">
           <div class="footer__box">
@@ -109,8 +112,9 @@ export default function Register(){
           </div>
         </div>
       </footer>
-      </div>
-  
-  );
+
+  </div>
+
+
+);
 }
-                
