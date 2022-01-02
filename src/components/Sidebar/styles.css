@@ -1,0 +1,35 @@
+.sidebar .image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+}
+.sidebar h2 {
+  color: rgb(255, 255, 255);
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.sidebar a {
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.5s;
+  padding-left: 20px;
+}
+.sidebar a:hover {
+  background: #d44433;
+}
+.sidebar {
+  width: 200px;
+  max-width: 200px;
+  min-width: 200px;
+  left: 0;
+  background: #ff6454;
+}
