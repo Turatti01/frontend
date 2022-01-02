@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 export default function Header() {
   const history = useHistory();
   function logout() {
+    console.log("sair");
     localStorage.clear();
     history.push("/");
   }
@@ -22,7 +23,11 @@ export default function Header() {
           Help<span style={{ fontWeight: 700 }}>Pet </span>
         </h3>
       </Link>
-      <button onClick={() => logout} class="sair_btn">
+      <button
+        onClick={() => logout()}
+        class="sair_btn"
+        style={{ cursor: "pointer" }}
+      >
         Sair
       </button>
     </header>
