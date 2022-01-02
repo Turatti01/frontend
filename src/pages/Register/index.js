@@ -9,21 +9,31 @@ export default function Register() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [sendForm, setSendForm] = useState(false);
   const [name, setName] = useState("");
 
   async function handleRegister(e) {
     e.preventDefault();
+    setSendForm(true);
     try {
       await api.post("/users.create", { name, email, password });
       alert("Usuário cadastrado");
       history.push("/SelectPet");
     } catch (err) {
+      setSendForm(false);
       alert("Oops, algo deu errado");
     }
   }
 
   return (
-    <div>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       <PublicHeader />
       <main class="register-login container flex flex--centro flex--coluna">
         <section class="cartao cadastro">
@@ -68,7 +78,7 @@ export default function Register() {
                 Senha
               </label>
             </div>
-            <button type="submit" class="botao">
+            <button type="submit" disabled={sendForm} class="botao">
               Cadastrar
             </button>
           </form>

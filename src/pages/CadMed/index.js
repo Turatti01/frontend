@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import api from "../../api";
 import { useHistory, useParams } from "react-router-dom";
-
 import "./styles.css";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
@@ -9,6 +8,7 @@ import Sidebar from "../../components/Sidebar";
 export default function CadMed() {
   const history = useHistory();
   const { id } = useParams();
+  const [sendForm, setSendForm] = useState(false);
   const [nome, setNome] = useState("");
   const [pet, setPet] = useState("");
   const [data1, setData1] = useState("");
@@ -25,6 +25,7 @@ export default function CadMed() {
 
   async function handleRegister(e) {
     e.preventDefault();
+    setSendForm(true);
     const data = {
       nome,
       petId: id,
@@ -37,6 +38,7 @@ export default function CadMed() {
       await api.post(`/medicamentos.create/${id}`, data);
       history.push(`/Medicamentos/${id}`);
     } catch (err) {
+      setSendForm(false);
       alert("Oops, algo deu errado");
     }
   }
@@ -110,7 +112,7 @@ export default function CadMed() {
                   Esse campo não pode estar vazio
                 </span>
               </div>
-              <button type="submit" class="botao">
+              <button type="submit" disabled={sendForm} class="botao">
                 Salvar
               </button>
             </form>

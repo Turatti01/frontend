@@ -8,10 +8,12 @@ import Footer from "../../components/Footer";
 export default function Logon() {
   const history = useHistory();
   const [email, setEmail] = useState("");
+  const [sendForm, setSendForm] = useState(false);
   const [password, setPassword] = useState("");
 
   async function handleLogin(e) {
     e.preventDefault();
+    setSendForm(true);
     const data = {
       email: email,
       password: password,
@@ -22,6 +24,7 @@ export default function Logon() {
       console.log(response.data.id);
       history.push("/SelectPet");
     } catch (err) {
+      setSendForm(false);
       alert("Oops, algo deu errado");
     }
   }
@@ -65,7 +68,7 @@ export default function Logon() {
                 Senha
               </label>
             </div>
-            <button type="submit" class="botao">
+            <button type="submit" disabled={sendForm} class="botao">
               Fazer Login
             </button>
             <Link

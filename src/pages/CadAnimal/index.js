@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import api from "../../api";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Header from "../../components/Header";
 import "./styles.css";
-import image1 from "../../Assets/logomarca.svg";
+
 export default function CadAnimal() {
   const history = useHistory();
+  const [sendForm, setSendForm] = useState(false);
   const [nome, setNome] = useState("");
   const [tipo, setTipo] = useState("");
   const [raca, setRaca] = useState("");
@@ -18,6 +19,7 @@ export default function CadAnimal() {
 
   async function handleRegister2(e) {
     e.preventDefault();
+    setSendForm(true);
     const userId = localStorage.getItem("userId");
     const data = {
       userId,
@@ -36,6 +38,7 @@ export default function CadAnimal() {
       const response = await api.post("/pets.create", data);
       history.push(`/pet/${response.data.id}`);
     } catch (err) {
+      setSendForm(false);
       alert("Oops, algo deu errado");
     }
   }
@@ -163,65 +166,12 @@ export default function CadAnimal() {
               </form>
             </div>
 
-            <button type="submit" class="botao">
+            <button type="submit" disabled={sendForm} class="botao">
               Cadastrar
             </button>
           </form>
         </section>
       </main>
-      {/* <footer id="footer">
-        <div class="center">
-          <div class="footer__box">
-            <nav class="footer_menu">
-              <Link to="#" class="footer__link">
-                Quem Somos
-              </Link>
-              <Link to="#" class="footer__link">
-                Blog
-              </Link>
-              <Link to="#" class="footer__link">
-                Como Funciona
-              </Link>
-              <Link to="#" class="footer__link">
-                Acesse Agora
-              </Link>
-            </nav>
-            <div class="footer__newsletter">
-              <span class="footer__newsletter-title">NewsLetter</span>
-              <span class="footer__newsletter-text">
-                Inscreva-se para receber novidades<br></br>
-              </span>
-              <form action="" class="footer__newsletter-form">
-                <input
-                  type="text"
-                  placeholder="Endereço de E-mail"
-                  class="footer__newsletter-input"
-                ></input>
-                <button
-                  type="submit"
-                  class="footer__newsletter-button"
-                ></button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="footer__copyright">
-          <div class="center">
-            <span class="footer__copyright-text">2020 © Helpet</span>
-            <div>
-              <Link to="" class="footer__copyright-link">
-                <i class="icon icon-fb"></i>
-              </Link>
-              <Link to="" class="footer__copyright-link">
-                <i class="icon icon-twitter"></i>
-              </Link>
-              <Link to="" class="footer__copyright-link">
-                <i class="icon icon-instagram"></i>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer> */}
     </div>
   );
 }
