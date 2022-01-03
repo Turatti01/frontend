@@ -52,7 +52,7 @@ export default function Vacina() {
               <Link className="botaopet" to={`/CadVac/${id}`}>
                 Cadastrar Vacina
               </Link>
-              <div style={{ marginTop: 30 }}>
+              <div className="profile-container" style={{ marginTop: 30 }}>
                 <ul>
                   {vacina.map((vacina) => (
                     <li key={vacina.id}>
