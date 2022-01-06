@@ -14,13 +14,17 @@ export default function Sidebar({ pet }) {
         style={{ margin: 0, padding: 0, paddingTop: 20 }}
       >
         <center>
-          <img
-            src={
-              "https://conteudo.imguol.com.br/c/entretenimento/54/2020/04/28/cachorro-pug-1588098472110_v2_1x1.jpg"
-            }
-            class="image"
-            alt=""
-          />
+          <div
+            className="image"
+            style={{
+              backgroundImage: `url(${
+                pet.img ||
+                "https://vmcom.com.br/adm_cursos/admpanel-vm/img/default.jpg"
+              })`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
           <h2>{pet.nome}</h2>
         </center>
       </Link>

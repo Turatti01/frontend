@@ -10,6 +10,7 @@ export default function CadAnimal() {
   const [nome, setNome] = useState("");
   const [tipo, setTipo] = useState("");
   const [raca, setRaca] = useState("");
+  const [file, setFile] = useState("");
   const [idade, setIdade] = useState("");
   const [cor, setCor] = useState("");
   const [dataani, setDataani] = useState("");
@@ -21,21 +22,22 @@ export default function CadAnimal() {
     e.preventDefault();
     setSendForm(true);
     const userId = localStorage.getItem("userId");
-    const data = {
-      userId,
-      nome,
-      tipo,
-      raca,
-      idade,
-      cor,
-      dataani,
-      anidotado,
-      temperamento,
-      castrado,
-    };
-    console.log(data);
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("nome", nome);
+    form.append("tipo", tipo);
+    form.append("userId", userId);
+    form.append("raca", raca);
+    form.append("idade", idade);
+    form.append("cor", cor);
+    form.append("dataani", dataani);
+    form.append("anidotado", anidotado);
+    form.append("temperamento", temperamento);
+    form.append("castrado", castrado);
+
     try {
-      const response = await api.post("/pets.create", data);
+      const response = await api.post("/pets.create", form);
       history.push(`/pet/${response.data.id}`);
     } catch (err) {
       setSendForm(false);
@@ -165,6 +167,14 @@ export default function CadAnimal() {
                 </div>
               </form>
             </div>
+
+            <input
+              type="file"
+              name="file"
+              accept="image/png, image/jpeg, image/pjpeg, image/jpg"
+              id="file-upload"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
 
             <button type="submit" disabled={sendForm} class="botao">
               Cadastrar

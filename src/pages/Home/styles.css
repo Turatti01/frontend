@@ -31,17 +31,7 @@ label #sidebar_btn {
 label #sidebar_btn:hover {
   color: #4487ff;
 }
-/* #check:checked ~ .sidebar {
-  left: -190px;
-}
-#check:checked ~ .sidebar a span {
-  display: none;
-}
-#check:checked ~ .sidebar a {
-  font-size: 20px;
-  margin-left: 170px;
-  width: 80px;
-} */
+
 .content {
   background-size: cover;
   background-position: center;
@@ -53,4 +43,15 @@ label #sidebar_btn:hover {
 }
 #check {
   display: none;
+}
+
+.pet-description {
+  border: 1px solid rgb(225, 225, 225);
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.pet-description strong {
+  font-weight: 600;
 }

@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className="dashboard-page">
       <Header />
-      <div class="content dashboard">
+      <div className="content dashboard">
         {pet == null && (
           <div
             style={{
@@ -44,7 +44,13 @@ export default function Home() {
           <>
             <Sidebar pet={pet} />
             <div style={{ width: "100%", padding: 20 }}>
-              <ul>
+              <div className="pet-description">
+                <strong>{pet.nome}</strong>
+                <div style={{ marginTop: 10 }}>
+                  {pet.tipo} - {pet.raca}
+                </div>
+              </div>
+              {/* <ul>
                 <li>{pet.nome}</li>
                 <li>{pet.tipo}</li>
                 <li>{pet.cor}</li>
@@ -53,7 +59,7 @@ export default function Home() {
                 <li>{pet.aniadotado}</li>
                 <li>{pet.temperamento}</li>
                 <li>{pet.castrado}</li>
-              </ul>
+              </ul> */}
             </div>
           </>
         )}
