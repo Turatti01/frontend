@@ -10,7 +10,7 @@ export default function Header() {
   }
   return (
     <header
-      class="vsf"
+      className="vsf"
       style={{
         display: "flex",
         flexDirecion: "row",
@@ -25,7 +25,7 @@ export default function Header() {
       </Link>
       <button
         onClick={() => logout()}
-        class="sair_btn"
+        className="sair_btn"
         style={{ cursor: "pointer" }}
       >
         Sair

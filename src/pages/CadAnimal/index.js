@@ -47,28 +47,28 @@ export default function CadAnimal() {
   return (
     <div>
       <Header />
-      <main class="register-login container flex flex--centro flex--coluna">
-        <section class="cartao cadastro">
-          <h1 class="cartao__titulo">
+      <main className="register-login container flex flex--centro flex--coluna">
+        <section className="cartao cadastro">
+          <h1 className="cartao__titulo">
             <center>Cadastro de Pet</center>
           </h1>
-          <form class="flex flex--coluna" onSubmit={handleRegister2}>
-            <div class="input-container">
+          <form className="flex flex--coluna" onSubmit={handleRegister2}>
+            <div className="input-container">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Nome"
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
               ></input>
-              <label class="input-label" for="nome">
+              <label className="input-label" for="nome">
                 Nome
               </label>
             </div>
-            <div class="input-container">
-              {/* <input name="raca" class="input" type="text" placeholder="Tipo" value={tipo} onChange={e => setTipo(e.target.value)} ></input> */}
+            <div className="input-container">
+              {/* <input name="raca" className="input" type="text" placeholder="Tipo" value={tipo} onChange={e => setTipo(e.target.value)} ></input> */}
               <select
-                class="input"
+                className="input"
                 value={tipo}
                 onChange={(e) => setTipo(e.target.value)}
               >
@@ -77,92 +77,92 @@ export default function CadAnimal() {
                 <option> Cachorro </option>
                 <option> Hamster </option>
               </select>
-              <label class="input-label" for="tipo">
+              <label className="input-label" for="tipo">
                 Tipo
               </label>
             </div>
 
-            <div class="input-container">
+            <div className="input-container">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Raca"
                 value={raca}
                 onChange={(e) => setRaca(e.target.value)}
               ></input>
-              <label class="input-label" for="email">
+              <label className="input-label" for="email">
                 Raça
               </label>
             </div>
-            <div class="input-container">
+            <div className="input-container">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Idade"
                 value={idade}
                 onChange={(e) => setIdade(e.target.value)}
               ></input>
-              <label class="input-label" for="nome">
+              <label className="input-label" for="nome">
                 Idade
               </label>
             </div>
-            <div class="input-container">
+            <div className="input-container">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Cor"
                 value={cor}
                 onChange={(e) => setCor(e.target.value)}
               ></input>
-              <label class="input-label" for="nome">
+              <label className="input-label" for="nome">
                 Cor
               </label>
             </div>
-            <div class="input-container">
+            <div className="input-container">
               <input
-                class="input"
+                className="input"
                 type="date"
                 placeholder="Data de Aniversário"
                 value={dataani}
                 onChange={(e) => setDataani(e.target.value)}
               ></input>
-              <label class="input-label" for="nome">
+              <label className="input-label" for="nome">
                 Data de Aniversário
               </label>
             </div>
 
-            <div class="radio-container">
+            <div className="radio-container">
               <form>
-                {/* <input name="nome" class="input" type="text" placeholder="Animal Adotado"value={anidotado} onChange={e => setAnidotado(e.target.value)}></input> */}
+                {/* <input name="nome" className="input" type="text" placeholder="Animal Adotado"value={anidotado} onChange={e => setAnidotado(e.target.value)}></input> */}
                 <p>Animal Adotado</p>
                 <div>
-                  <input type="radio" id="sim" class="radio" />
+                  <input type="radio" id="sim" className="radio" />
                   <label for="sim">Sim</label>
-                  <input type="radio" id="nao" class="radio" />
+                  <input type="radio" id="nao" className="radio" />
                   <label for="nao">Não</label>
                 </div>
               </form>
             </div>
-            <div class="input-container">
+            <div className="input-container">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Temperamento"
                 value={temperamento}
                 onChange={(e) => setTemperamento(e.target.value)}
               ></input>
-              <label class="input-label" for="nome">
+              <label className="input-label" for="nome">
                 Temperamento
               </label>
             </div>
-            <div class="radio-container">
+            <div className="radio-container">
               <form>
-                {/* <input name="Castrado" class="input" type="text" placeholder="Castrado" value={castrado} onChange={e => setCastrado(e.target.value)} ></input> */}
+                {/* <input name="Castrado" className="input" type="text" placeholder="Castrado" value={castrado} onChange={e => setCastrado(e.target.value)} ></input> */}
                 <p>Castrado</p>
                 <div>
-                  <input type="radio" name="contact" class="radio" />
+                  <input type="radio" name="contact" className="radio" />
                   <label for="sim">Sim</label>
-                  <input type="radio" name="contact" class="radio" />
+                  <input type="radio" name="contact" className="radio" />
                   <label for="nao">Não</label>
                 </div>
               </form>
@@ -176,7 +176,7 @@ export default function CadAnimal() {
               onChange={(e) => setFile(e.target.files[0])}
             />
 
-            <button type="submit" disabled={sendForm} class="botao">
+            <button type="submit" disabled={sendForm} className="botao">
               Cadastrar
             </button>
           </form>

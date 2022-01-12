@@ -8,7 +8,7 @@ import "./styles.css";
 
 export default function Sidebar({ pet }) {
   return (
-    <nav class="sidebar">
+    <nav className="sidebar">
       <Link
         to={`/pet/${pet.id || pet.petId}`}
         style={{ margin: 0, padding: 0, paddingTop: 20 }}

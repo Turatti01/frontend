@@ -47,7 +47,7 @@ export default function CadMed() {
   return (
     <div className="dashboard-page">
       <Header />
-      <div class="content dashboard">
+      <div className="content dashboard">
         {pet == null && (
           <div
             style={{
@@ -70,70 +70,70 @@ export default function CadMed() {
           <>
             <Sidebar pet={pet} />
             <div style={{ width: "100%", padding: 20 }}>
-              <section class="cartao cadastro">
-                <h1 class="cartao__titulo">Cadastrar Medicamento</h1>
-                <form class="flex flex--coluna" onSubmit={handleRegister}>
-                  <div class="input-container">
+              <section className="cartao cadastro">
+                <h1 className="cartao__titulo">Cadastrar Medicamento</h1>
+                <form className="flex flex--coluna" onSubmit={handleRegister}>
+                  <div className="input-container">
                     <input
-                      class="input"
+                      className="input"
                       type="text"
                       placeholder="Nome"
                       value={nome}
                       onChange={(e) => setNome(e.target.value)}
                     />
-                    <label class="input-label" for="vacina">
+                    <label className="input-label" for="vacina">
                       Nome Do Medicamento
                     </label>
-                    <span class="input-mensagem-erro">
+                    <span className="input-mensagem-erro">
                       Esse campo não pode estar vazio
                     </span>
                   </div>
-                  <div class="input-container">
+                  <div className="input-container">
                     <input
-                      class="input"
+                      className="input"
                       type="date"
                       placeholder="Data da Vacina"
                       value={data1}
                       onChange={(e) => setData1(e.target.value)}
                     />
-                    <label class="input-label" for="dataVacina">
+                    <label className="input-label" for="dataVacina">
                       Data do Medicamento
                     </label>
-                    <span class="input-mensagem-erro">
+                    <span className="input-mensagem-erro">
                       Esse campo não pode estar vazio
                     </span>
                   </div>
-                  <div class="input-container">
+                  <div className="input-container">
                     <input
-                      class="input"
+                      className="input"
                       type="date"
                       placeholder="Data da Vacina"
                       value={data2}
                       onChange={(e) => setData2(e.target.value)}
                     />
-                    <label class="input-label" for="senha">
-                      Data Para Revacinar
+                    <label className="input-label" for="senha">
+                      Data Para Nova Dose
                     </label>
-                    <span class="input-mensagem-erro">
+                    <span className="input-mensagem-erro">
                       Esse campo não pode estar vazio
                     </span>
                   </div>
-                  <div class="input-container">
+                  <div className="input-container">
                     <input
-                      class="input"
+                      className="input"
                       type="text"
                       placeholder="Descrição"
                       value={descricao}
                       onChange={(e) => setDescricao(e.target.value)}
                     />
-                    <label class="input-label" for="senha">
+                    <label className="input-label" for="senha">
                       Observação
                     </label>
-                    <span class="input-mensagem-erro">
+                    <span className="input-mensagem-erro">
                       Esse campo não pode estar vazio
                     </span>
                   </div>
-                  <button type="submit" disabled={sendForm} class="botao">
+                  <button type="submit" disabled={sendForm} className="botao">
                     Salvar
                   </button>
                 </form>

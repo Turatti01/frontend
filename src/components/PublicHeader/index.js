@@ -6,7 +6,7 @@ import "./styles.css";
 export default function PubçicRegister() {
   return (
     <section id="menu">
-      <div class="center">
+      <div className="center">
         <header id="main-header">
           <div
             style={{
@@ -22,14 +22,14 @@ export default function PubçicRegister() {
             </h3>
           </div>
           <nav>
-            <ul class="menu">
-              <li class="menu__item">
-                <Link class="menu__link" to="/">
+            <ul className="menu">
+              <li className="menu__item">
+                <Link className="menu__link" to="/">
                   Entrar
                 </Link>
               </li>
-              <li class="menu__item">
-                <Link class="menu__link" to="register">
+              <li className="menu__item">
+                <Link className="menu__link" to="register">
                   Cadastrar-se
                 </Link>
               </li>

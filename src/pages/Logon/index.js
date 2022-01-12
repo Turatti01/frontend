@@ -39,36 +39,36 @@ export default function Logon() {
       }}
     >
       <PublicHeader />
-      <main class="register-login container flex flex--centro flex--coluna">
-        <section class="cartao">
-          <h1 class="cartao__titulo">Login</h1>
-          <form class="flex flex--coluna" onSubmit={handleLogin}>
-            <div class="input-container">
+      <main className="register-login container flex flex--centro flex--coluna">
+        <section className="cartao">
+          <h1 className="cartao__titulo">Login</h1>
+          <form className="flex flex--coluna" onSubmit={handleLogin}>
+            <div className="input-container">
               <input
                 name="email"
-                class="input"
+                className="input"
                 placeholder="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
-              <label class="input-label" for="email">
+              <label className="input-label" for="email">
                 E-mail
               </label>
             </div>
-            <div class="input-container">
+            <div className="input-container">
               <input
                 type="password"
                 name="senha"
-                class="input"
+                className="input"
                 placeholder="senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
-              <label class="input-label" for="senha">
+              <label className="input-label" for="senha">
                 Senha
               </label>
             </div>
-            <button type="submit" disabled={sendForm} class="botao">
+            <button type="submit" disabled={sendForm} className="botao">
               Fazer Login
             </button>
             <Link

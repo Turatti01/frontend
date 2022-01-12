@@ -1,3 +1,44 @@
+.vacina-wrapper {
+  width: 100%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 24px -4px rgba(126, 126, 126, 0.88);
+  box-shadow: 0px 0px 24px -4px rgba(126, 126, 126, 0.88);
+}
+
+.vacina-wrapper h3 {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.vacina-wrapper div {
+  text-align: justify;
+  margin: 15px 0px;
+}
+
+.vacina-wrapper button {
+  text-transform: uppercase;
+  font-size: 14px;
+  background: rgb(220, 91, 68);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  margin: auto;
+  font-weight: 600;
+  cursor: pointer;
+}
+.vacina-wrapper strong {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.vacina-wrapper li {
+  list-style: disc;
+  margin-left: 30px;
+}
+
 .profile-container {
   width: 100%;
   max-width: 1180px;
@@ -58,13 +99,13 @@
   position: relative;
 }
 
-.profile-container ul li button {
+/* .profile-container ul li button.trash-btn {
   position: absolute;
   right: 24px;
   top: 24px;
   border: 0;
   background: none;
-}
+} */
 
 .profile-container ul li button:hover {
   opacity: 0.8;
@@ -118,4 +159,66 @@
 }
 .butaa:hover {
   filter: brightness(80%);
+}
+
+.delete-red-button {
+  background-color: rgb(223, 12, 12) !important;
+  color: white !important;
+}
+
+.vacina-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgb(255, 255, 255) !important;
+}
+
+.vacina-card.card-med {
+  border: 0px !important;
+  background: rgb(255, 255, 255) !important;
+}
+
+.vacina-card button {
+  position: relative !important;
+  right: 0px !important;
+  top: 0px !important;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+.vacina-card button:disabled {
+  cursor: not-allowed;
+}
+.vacina-card button:disabled:hover {
+  opacity: 0.2;
+}
+
+.vacina-data {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.vacina-data strong {
+  font-weight: 500;
+  margin-bottom: 5px !important;
+}
+
+.add-light-button {
+  background-color: rgb(25, 199, 97) !important;
+  color: white !important;
+  margin-bottom: 6px;
+}
+
+.vacina-label {
+  background: blue;
+  color: white;
 }

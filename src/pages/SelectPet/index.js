@@ -44,7 +44,7 @@ export default function SelectPet() {
       }}
     >
       <Header />
-      <div class="register-login container" style={{ height: "100%" }}>
+      <div className="register-login container" style={{ height: "100%" }}>
         <div>
           <Link className="botaopet" to="/CadAnimal">
             Cadastrar novo animal

@@ -5,30 +5,30 @@ import "./styles.css";
 export default function Footer() {
   return (
     <footer id="footer">
-      <div class="center">
-        <div class="footer__box">
-          <nav class="footer_menu">
-            <Link to="#" class="footer__link">
+      <div className="center">
+        <div className="footer__box">
+          <nav className="footer_menu">
+            <Link to="#" className="footer__link">
               Formulário de testes
             </Link>
-            <Link to="#" class="footer__link">
+            <Link to="#" className="footer__link">
               Como Funciona
             </Link>
           </nav>
         </div>
       </div>
-      <div class="footer__copyright">
-        <div class="center">
-          <span class="footer__copyright-text">2020 © Helpet</span>
+      <div className="footer__copyright">
+        <div className="center">
+          <span className="footer__copyright-text">2020 © Helpet</span>
           <div>
-            <Link to="" class="footer__copyright-link">
-              <i class="icon icon-fb"></i>
+            <Link to="" className="footer__copyright-link">
+              <i className="icon icon-fb"></i>
             </Link>
-            <Link to="" class="footer__copyright-link">
-              <i class="icon icon-twitter"></i>
+            <Link to="" className="footer__copyright-link">
+              <i className="icon icon-twitter"></i>
             </Link>
-            <Link to="" class="footer__copyright-link">
-              <i class="icon icon-instagram"></i>
+            <Link to="" className="footer__copyright-link">
+              <i className="icon icon-instagram"></i>
             </Link>
           </div>
         </div>

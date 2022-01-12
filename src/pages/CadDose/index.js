@@ -9,26 +9,19 @@ import ReactLoading from "react-loading";
 export default function EditVac() {
   const history = useHistory();
   const { id } = useParams();
+  const { vacina } = useParams();
   const [sendForm, setSendForm] = useState(false);
-  const [nome, setNome] = useState("");
-  const [data1, setData1] = useState("");
   const [data2, setData2] = useState("");
-  const [descricao, setDescricao] = useState("");
   const [pet, setPet] = useState(null);
 
   async function handleRegister(e) {
     e.preventDefault();
     setSendForm(true);
     const data = {
-      nome,
-      petId: id,
-      data1,
       data2,
-      descricao,
     };
-    console.log(data);
     try {
-      await api.post(`/vacina.create/${id}`, data);
+      await api.post(`/addDose/${vacina}`, data);
       history.push(`/Vacina/${id}`);
     } catch (err) {
       setSendForm(false);
@@ -71,30 +64,15 @@ export default function EditVac() {
             <Sidebar pet={pet} />
             <div style={{ width: "100%", padding: 20 }}>
               <section className="cartao cadastro">
-                <h1 className="cartao__titulo">Cadastrar Vacina</h1>
+                <h1 className="cartao__titulo">Cadastrar nova dose</h1>
                 <form className="flex flex--coluna" onSubmit={handleRegister}>
                   <div className="input-container">
                     <input
                       className="input"
-                      type="text"
-                      placeholder="Nome"
-                      value={nome}
-                      onChange={(e) => setNome(e.target.value)}
-                    />
-                    <label className="input-label" for="vacina">
-                      Nome Da Vacina
-                    </label>
-                    <span className="input-mensagem-erro">
-                      Esse campo não pode estar vazio
-                    </span>
-                  </div>
-                  <div className="input-container">
-                    <input
-                      className="input"
                       type="date"
-                      placeholder="Data da Vacina"
-                      value={data1}
-                      onChange={(e) => setData1(e.target.value)}
+                      placeholder="Data da nova dose"
+                      value={data2}
+                      onChange={(e) => setData2(e.target.value)}
                     />
                     <label className="input-label" for="dataVacina">
                       Data da Vacina
@@ -103,36 +81,7 @@ export default function EditVac() {
                       Esse campo não pode estar vazio
                     </span>
                   </div>
-                  <div className="input-container">
-                    <input
-                      className="input"
-                      type="date"
-                      placeholder="Data da Vacina"
-                      value={data2}
-                      onChange={(e) => setData2(e.target.value)}
-                    />
-                    <label className="input-label" for="senha">
-                      Data Para Revacinar
-                    </label>
-                    <span className="input-mensagem-erro">
-                      Esse campo não pode estar vazio
-                    </span>
-                  </div>
-                  <div className="input-container">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder="Descrição"
-                      value={descricao}
-                      onChange={(e) => setDescricao(e.target.value)}
-                    />
-                    <label className="input-label" for="senha">
-                      Observação
-                    </label>
-                    <span className="input-mensagem-erro">
-                      Esse campo não pode estar vazio
-                    </span>
-                  </div>
+
                   <button type="submit" disabled={sendForm} className="botao">
                     Salvar
                   </button>

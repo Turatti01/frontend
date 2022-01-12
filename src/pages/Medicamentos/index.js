@@ -15,18 +15,21 @@ export default function Medicamentos() {
   useEffect(() => {
     async function fetchData() {
       const med = await api.get(`/medicamentos.list/${id}`);
+      console.log("med", med);
       setMedicamentos(med.data);
 
       const response = await api.get(`/pet.list/${id}`);
       setPet(response.data);
     }
     fetchData();
+    console.log(medicamentos);
+    console.log(pet);
   }, []);
 
   return (
     <div className="dashboard-page">
       <Header />
-      <div class="content dashboard">
+      <div className="content dashboard">
         {pet == null && medicamentos == null && (
           <div
             style={{
@@ -55,20 +58,65 @@ export default function Medicamentos() {
               <div className="profile-container" style={{ marginTop: 30 }}>
                 <ul>
                   {medicamentos.map((medicamentos) => (
-                    <li key={medicamentos.id}>
-                      <strong>Nome:</strong>
-                      {medicamentos.nome}
-                      <strong>Data da Primeira dose: </strong>
-                      {medicamentos.data1}
-                      <strong>Data da Segunda dose: </strong>
-                      {medicamentos.data2}
-                      <strong>Descrição:</strong>
-                      {medicamentos.descricao}
+                    <li key={medicamentos.id} className="vacina-card card-med">
+                      <div>
+                        <strong
+                          style={{
+                            fontWeight: 800,
+                            textTransform: "uppercase",
+                            textAlign: "center",
+                          }}
+                        >
+                          {medicamentos.nome}
+                        </strong>
+                        <div className="vacina-data">
+                          <strong>Primeira dose: </strong>
+                          {new Date(medicamentos.data1).toLocaleDateString(
+                            "pt-BR",
+                            {
+                              timeZone: "UTC",
+                            }
+                          )}
+                        </div>
 
-                      <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
-                      </button>
+                        <div className="vacina-data">
+                          <strong>Segunda dose: </strong>
+                          {new Date(medicamentos.data2).toLocaleDateString(
+                            "pt-BR",
+                            {
+                              timeZone: "UTC",
+                            }
+                          )}
+                        </div>
+                        {medicamentos.descricao && (
+                          <div className="vacina-data">
+                            <strong>Obs.:</strong>
+                            {medicamentos.descricao}
+                          </div>
+                        )}
+                      </div>
+
+                      <div>
+                        <button className="delete-red-button">
+                          <FiTrash2 size={15} color="white" />
+                          Remover
+                        </button>
+                      </div>
                     </li>
+                    // <li key={medicamentos.id}>
+                    //   <strong>Nome:</strong>
+                    //   {medicamentos.nome}
+                    //   <strong>Data da Primeira dose: </strong>
+                    //   {medicamentos.data1}
+                    //   <strong>Data da Segunda dose: </strong>
+                    //   {medicamentos.data2}
+                    //   <strong>Descrição:</strong>
+                    //   {medicamentos.descricao}
+
+                    //   <button type="button">
+                    //     <FiTrash2 size={20} color="#a8a8b3" />
+                    //   </button>
+                    // </li>
                   ))}
                 </ul>
               </div>
