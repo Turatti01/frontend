@@ -17,15 +17,7 @@ export default function Vacina() {
   useEffect(() => {
     async function fetchData() {
       const vac = await api.get(`/vacina.list/${id}`);
-
-      // vac.data.map((vacina) => {
-      //   var a = moment(new Date(vacina.data1));
-      //   var b = moment();
-      //   var diffDays = b.diff(a, "days");
-      //   vacina.diasRestantes = diffDays;
-      // });
       setVacina(vac.data);
-
       const pet = await api.get(`/pet.list/${id}`);
       setPet(pet.data);
     }
@@ -34,6 +26,19 @@ export default function Vacina() {
 
   function novaDose(vacina) {
     history.push(`/CadDose/${id}/${vacina}`);
+  }
+
+  async function deleteVacina(vacina) {
+    const response = window.confirm("Tem certeza que deseja excluir a vacina?");
+    if (response) {
+      try {
+        await api.post(`/deleteVacina/${vacina}`);
+        setVacina((state) => state.filter((vac) => vac.id !== vacina));
+      } catch (err) {
+        console.log(err);
+        alert("Oops, algo deu errado");
+      }
+    }
   }
 
   return (
@@ -130,7 +135,10 @@ export default function Vacina() {
                           <FiPlus size={15} color="white" />
                           Adicionar dose
                         </button>
-                        <button className="delete-red-button">
+                        <button
+                          className="delete-red-button"
+                          onClick={() => deleteVacina(vacina.id)}
+                        >
                           <FiTrash2 size={15} color="white" />
                           Remover
                         </button>

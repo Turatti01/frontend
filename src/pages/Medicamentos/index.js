@@ -26,6 +26,21 @@ export default function Medicamentos() {
     console.log(pet);
   }, []);
 
+  async function deleteMedicamento(id) {
+    const response = window.confirm(
+      "Tem certeza que deseja excluir o medicamento?"
+    );
+    if (response) {
+      try {
+        await api.post(`/deleteVacina/${id}`);
+        setMedicamentos((state) => state.filter((med) => med.id !== id));
+      } catch (err) {
+        console.log(err);
+        alert("Oops, algo deu errado");
+      }
+    }
+  }
+
   return (
     <div className="dashboard-page">
       <Header />
@@ -97,7 +112,10 @@ export default function Medicamentos() {
                       </div>
 
                       <div>
-                        <button className="delete-red-button">
+                        <button
+                          className="delete-red-button"
+                          onClick={() => deleteMedicamento(medicamentos.id)}
+                        >
                           <FiTrash2 size={15} color="white" />
                           Remover
                         </button>
