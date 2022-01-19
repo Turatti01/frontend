@@ -136,9 +136,9 @@ export default function CadAnimal() {
                 {/* <input name="nome" className="input" type="text" placeholder="Animal Adotado"value={anidotado} onChange={e => setAnidotado(e.target.value)}></input> */}
                 <p>Animal Adotado</p>
                 <div>
-                  <input type="radio" id="contact" className="radio" />
+                  <input type="radio" name="contact" className="radio" />
                   <label for="sim">Sim</label>
-                  <input type="radio" id="contact" className="radio" />
+                  <input type="radio" name="contact" className="radio" />
                   <label for="nao">Não</label>
                 </div>
               </form>
