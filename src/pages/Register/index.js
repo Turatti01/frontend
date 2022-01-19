@@ -18,7 +18,7 @@ export default function Register() {
     try {
       await api.post("/users.create", { name, email, password });
       alert("Usuário cadastrado");
-      history.push("/SelectPet");
+      history.push("/");
     } catch (err) {
       setSendForm(false);
       alert("Oops, algo deu errado");
