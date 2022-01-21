@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="center">
         <div className="footer__box">
           <nav className="footer_menu">
-            <Link to="#" className="footer__link">
+            <Link to="https://forms.gle/Gye4B7tweqXX3sVQ6" className="footer__link">
               Formulário de testes
             </Link>
             <Link to="#" className="footer__link">
@@ -19,12 +19,12 @@ export default function Footer() {
       </div>
       <div className="footer__copyright">
         <div className="center">
-          <span className="footer__copyright-text">2020 © Helpet</span>
+          <span className="footer__copyright-text">2022 © Helpet</span>
           <div>
             <Link to="" className="footer__copyright-link">
               <i className="icon icon-fb"></i>
             </Link>
-            <Link to="" className="footer__copyright-link">
+            <Link to="https://twitter.com/turapttti" className="footer__copyright-link">
               <i className="icon icon-twitter"></i>
             </Link>
             <Link to="" className="footer__copyright-link">
