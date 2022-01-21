@@ -9,10 +9,8 @@ export default function Footer() {
         <div className="footer__box">
           <nav className="footer_menu">
             <Link to="#" className="footer__link">
-              Formulário de testes
             </Link>
             <Link to="#" className="footer__link">
-              Como Funciona
             </Link>
           </nav>
         </div>
