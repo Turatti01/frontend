@@ -76,6 +76,10 @@ export default function CadAnimal() {
                 <option> Gato </option>
                 <option> Cachorro </option>
                 <option> Hamster </option>
+                <option> Coelho </option>
+                <option> Piriquito </option>
+                <option> Furão </option>
+                <option> Rato </option>
               </select>
               <label className="input-label" for="tipo">
                 Tipo
