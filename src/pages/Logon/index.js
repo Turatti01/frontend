@@ -25,7 +25,7 @@ export default function Logon() {
       history.push("/SelectPet");
     } catch (err) {
       setSendForm(false);
-      alert("Oops, algo deu errado");
+      alert("Oops, email ou senha inválido");
     }
   }
 
