@@ -126,7 +126,7 @@ export default function CadAnimal() {
               <input
                 className="input"
                 type="date"
-                placeholder="Data de Aniversário"
+                placeholder="Data de Nascimento"
                 value={dataani}
                 onChange={(e) => setDataani(e.target.value)}
               ></input>
