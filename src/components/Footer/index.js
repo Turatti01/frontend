@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="center">
         <div className="footer__box">
           <nav className="footer_menu">
-            <Link to="https://forms.gle/Gye4B7tweqXX3sVQ6" className="footer__link">
+            <Link to="#" className="footer__link">
               Formulário de testes
             </Link>
             <Link to="#" className="footer__link">
